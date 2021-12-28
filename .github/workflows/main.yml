@@ -68,6 +68,11 @@ jobs:
         context: ./worker
         push: true
         tags: ga63qes/multi-worker
+       # Deploy sample image to the GKE cluster
+    - 
+      name: Deploy
+      run: |-
+        kubectl apply -f k8s
 
 
     
