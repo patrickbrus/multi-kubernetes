@@ -72,11 +72,13 @@ jobs:
         tags: |
           ga63qes/multi-worker:latest
           ga63qes/multi-worker:${{ github.sha }}
-       # Deploy sample image to the GKE cluster
+
+       # Deploy images to the GKE cluster and imperatively set the image version to newest available
     - 
       name: Deploy
       run: |-
         kubectl apply -f k8s
+      #kubectl set image deployments/server-deployment server=ga63qes/multi-server:${{ github.sha }}
 
 
     
